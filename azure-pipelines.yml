@@ -16,6 +16,13 @@ steps:
   displayName: 'Install Node.js'
 
 
+- task: Docker@2
+  inputs:
+    repository: 'qaninja/node-wd'
+    command: 'buildAndPush'
+    Dockerfile: '**/Dockerfile'
+
+
 - task: AzureFunctionAppContainer@1
   inputs:
     appName: 
@@ -23,6 +30,8 @@ steps:
 
 - script: |
     npm install
+    npm install chromedriver --save-dev
+    npm install nightwatch --save-dev
     npm run build
   displayName: 'npm install and build'
 
