@@ -6,6 +6,7 @@ module.exports = {
     webdriver: {
         start_process: true,
         server_path: chromedriver.path,
+        host: "localhost",
         port: 9515
     },
 
@@ -17,3 +18,4 @@ module.exports = {
         }
     }
 }
+
