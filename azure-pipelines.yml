@@ -22,11 +22,11 @@ steps:
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
 
-
-- task: AzureFunctionAppContainer@1
+- task: Docker@2
   inputs:
-    appName: 
-    imageName: 'qaninja/node-wd'
+    repository: 'qaninja/node-wd'
+    command: 'buildAndPush'
+    Dockerfile: '**/Dockerfile'
 
 - script: |
     npm install
@@ -34,4 +34,5 @@ steps:
     npm install nightwatch --save-dev
     npm run build
   displayName: 'npm install and build'
+
 
